@@ -1,15 +1,25 @@
 package es.ulpgc;
 
+<<<<<<< Updated upstream
 
 import opennlp.tools.langdetect.Language;
 import opennlp.tools.langdetect.LanguageDetectorME;
 import opennlp.tools.langdetect.LanguageDetectorModel;
 import java.io.*;
+=======
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.regex.Matcher;
+>>>>>>> Stashed changes
 import java.util.regex.Pattern;
 
 public class Cleaner {
     private static LanguageDetectorME languageDetector;
 
+<<<<<<< Updated upstream
     // Load the language detection model once
     static {
         try (InputStream modelIn = new FileInputStream("src/main/java/es/npl/langdetect-183.bin")) {
@@ -27,6 +37,50 @@ public class Cleaner {
         String releaseDate = "Unknown Date";
         String language = "Unknown Language";
         StringBuilder content = new StringBuilder();
+=======
+    private static final String STOPWORDS_FILE_PATH = "stopwords_en.txt"; // Path to your stopwords file
+    private static final Set<String> STOPWORDS = loadStopwords(STOPWORDS_FILE_PATH);
+
+    private static Set<String> loadStopwords(String filePath) {
+        Set<String> stopwords = new HashSet<>();
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
+            for (String line : lines) {
+                stopwords.add(line.trim().toLowerCase()); // Normalize to lowercase
+            }
+        } catch (IOException e) {
+            System.err.println("Error loading stopwords from file: " + filePath);
+            e.printStackTrace();
+        }
+        return stopwords;
+    }
+
+    public static class Book {
+        String title;
+        String author;
+        String date;
+        String language;
+        String credits;
+        String ebookNumber;
+        List<String> words;
+        String fullContent;
+
+        public Book(String title, String author, String date, String language, String credits, String ebookNumber, List<String> words, String fullContent) {
+            this.title = title;
+            this.author = author;
+            this.date = date;
+            this.language = language;
+            this.credits = credits;
+            this.ebookNumber = ebookNumber;
+            this.words = words;
+            this.fullContent = fullContent;
+        }
+    }
+
+    public static List<String> cleanText(String text) {
+        List<String> meaningfulWords = new ArrayList<>();
+        String[] words = text.toLowerCase().split("\\W+");
+>>>>>>> Stashed changes
 
         boolean contentStarted = false;
 
@@ -58,15 +112,50 @@ public class Cleaner {
                     break; // Stop reading if we reached the end marker
                 }
 
+<<<<<<< Updated upstream
                 // Append lines only if within the main content
                 if (contentStarted) {
                     content.append(line).append(" ");
+=======
+        Map<String, String> metadata = extractMetadata(content);
+
+        int startIdx = content.indexOf("*** START OF THIS PROJECT GUTENBERG EBOOK");
+        if (startIdx != -1) {
+            content = content.substring(startIdx);  // Remove metadata part
+        }
+
+        String fullContent = content;
+        List<String> words = cleanText(content);
+
+        return new Book(
+                metadata.get("title"),
+                metadata.get("author"),
+                metadata.get("date"),
+                metadata.get("language"),
+                metadata.get("credits"),
+                metadata.get("ebook_number"),
+                words,
+                fullContent
+        );
+    }
+
+    public static List<Book> processAllBooks(String folderPath) throws IOException {
+        File folder = new File(folderPath);
+        List<Book> books = new ArrayList<>();
+
+        if (folder.exists() && folder.isDirectory()) {
+            for (File file : Objects.requireNonNull(folder.listFiles())) {
+                if (file.isFile() && (file.getName().endsWith(".txt") || file.getName().endsWith(".html"))) {
+                    System.out.println("Processing " + file.getName());
+                    books.add(processBook(file));
+>>>>>>> Stashed changes
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+<<<<<<< Updated upstream
         // Detect language
         String detectedLanguage = detectLanguage(content.toString());
         if (!detectedLanguage.equals("Unknown Language")) {
@@ -78,6 +167,9 @@ public class Cleaner {
 
         // Return a new Book object with metadata and cleaned content
         return new Book(title, author, releaseDate, language, cleanedContent);
+=======
+        return books;
+>>>>>>> Stashed changes
     }
 
     private static String detectLanguage(String content) {
