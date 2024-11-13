@@ -3,16 +3,28 @@ package es.ulpgc;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Cleaner {
 
-    private static final Set<String> STOPWORDS = loadStopwords();
+    private static final String STOPWORDS_FILE_PATH = "stopwords-en.txt"; // Path to your stopwords file
+    private static final Set<String> STOPWORDS = loadStopwords(STOPWORDS_FILE_PATH);
 
-    private static Set<String> loadStopwords() {
-        return new HashSet<>(Arrays.asList("the", "and", "to", "of", "a", "in", "that", "is", "it", "with", "as", "for", "its", "on", "was", "at", "by", "this"));
+    private static Set<String> loadStopwords(String filePath) {
+        Set<String> stopwords = new HashSet<>();
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
+            for (String line : lines) {
+                stopwords.add(line.trim().toLowerCase()); // Normalize to lowercase
+            }
+        } catch (IOException e) {
+            System.err.println("Error loading stopwords from file: " + filePath);
+            e.printStackTrace();
+        }
+        return stopwords;
     }
 
     public static class Book {
@@ -23,7 +35,7 @@ public class Cleaner {
         String credits;
         String ebookNumber;
         List<String> words;
-        String fullContent; // Full content of the book
+        String fullContent;
 
         public Book(String title, String author, String date, String language, String credits, String ebookNumber, List<String> words, String fullContent) {
             this.title = title;
@@ -33,18 +45,17 @@ public class Cleaner {
             this.credits = credits;
             this.ebookNumber = ebookNumber;
             this.words = words;
-            this.fullContent = fullContent; // Full content
+            this.fullContent = fullContent;
         }
     }
 
-    // Cleans the text to remove stopwords and process only meaningful words
     public static List<String> cleanText(String text) {
         List<String> meaningfulWords = new ArrayList<>();
         String[] words = text.toLowerCase().split("\\W+");
 
         for (String word : words) {
             word = word.replace("_", "").trim();
-            if (!STOPWORDS.contains(word) && word.length() > 2) {
+            if (!STOPWORDS.contains(word) && word.length() > 2 && !word.matches("\\d+")) {
                 meaningfulWords.add(word);
             }
         }
@@ -73,15 +84,13 @@ public class Cleaner {
 
         Map<String, String> metadata = extractMetadata(content);
 
-        // Separate the book content (after the metadata)
         int startIdx = content.indexOf("*** START OF THIS PROJECT GUTENBERG EBOOK");
         if (startIdx != -1) {
             content = content.substring(startIdx);  // Remove metadata part
         }
 
-        // Save the full content and process only the text
         String fullContent = content;
-        List<String> words = cleanText(content);  // Get the processed words from the content
+        List<String> words = cleanText(content);
 
         return new Book(
                 metadata.get("title"),
@@ -91,7 +100,7 @@ public class Cleaner {
                 metadata.get("credits"),
                 metadata.get("ebook_number"),
                 words,
-                fullContent  // Add full content
+                fullContent
         );
     }
 
@@ -108,11 +117,12 @@ public class Cleaner {
             }
         }
 
-        return books;  // Return the list of books with clean text
+        return books;
     }
 
     public static void main(String[] args) throws IOException {
         // Example: Process all books from a folder and print out clean text of each book
         List<Book> books = processAllBooks("datalake/" + GutenbergCrawler.getDate());
+
     }
 }
