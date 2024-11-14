@@ -11,18 +11,17 @@ import java.util.regex.Pattern;
 public class Cleaner {
 
     private static final String STOPWORDS_FILE_PATH = "stopwords-en.txt"; // Path to your stopwords file
-    private static final Set<String> STOPWORDS = loadStopwords(STOPWORDS_FILE_PATH);
+    private static final Set<String> STOPWORDS = loadStopwords();
 
-    private static Set<String> loadStopwords(String filePath) {
+    private static Set<String> loadStopwords() {
         Set<String> stopwords = new HashSet<>();
         try {
-            List<String> lines = Files.readAllLines(Paths.get(filePath));
+            List<String> lines = Files.readAllLines(Paths.get(Cleaner.STOPWORDS_FILE_PATH));
             for (String line : lines) {
                 stopwords.add(line.trim().toLowerCase()); // Normalize to lowercase
             }
         } catch (IOException e) {
-            System.err.println("Error loading stopwords from file: " + filePath);
-            e.printStackTrace();
+            System.err.println("Error loading stopwords from file: " + Cleaner.STOPWORDS_FILE_PATH);
         }
         return stopwords;
     }
@@ -59,7 +58,6 @@ public class Cleaner {
                 meaningfulWords.add(word);
             }
         }
-
         return meaningfulWords;
     }
 
@@ -91,6 +89,7 @@ public class Cleaner {
 
         String fullContent = content;
         List<String> words = cleanText(content);
+        String ebookNumber = file.getName().replaceFirst("[.][^.]+$", "");  // Remove extension
 
         return new Book(
                 metadata.get("title"),
@@ -98,7 +97,7 @@ public class Cleaner {
                 metadata.get("date"),
                 metadata.get("language"),
                 metadata.get("credits"),
-                metadata.get("ebook_number"),
+                ebookNumber,
                 words,
                 fullContent
         );
