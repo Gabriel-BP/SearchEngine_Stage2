@@ -86,7 +86,7 @@ public class GutenbergCrawler {
 
                 // Check if the folder is non-empty
                 File folder = new File(DOWNLOAD_FOLDER, folderName);
-                if (folder.listFiles().length > 0) {
+                if (folder.listFiles() != null && folder.listFiles().length > 0) {
                     // Update latestFolder if it's the first valid folder or a later date
                     if (latestFolder == null || folderDate.isAfter(LocalDate.parse(latestFolder, formatter))) {
                         latestFolder = folderName;
@@ -97,11 +97,20 @@ public class GutenbergCrawler {
             }
         }
 
+        if (latestFolder == null) {
+            System.out.println("No non-empty folders found.");
+        }
+
         return latestFolder;
     }
 
-    // Method to get the file with the biggest ID in the latest non-empty folder
+
     public static String getFileWithLargestBookID(String latestFolder) {
+        if (latestFolder == null) {
+            System.err.println("No non-empty folder available.");
+            return "010.txt";
+        }
+
         File folder = new File(DOWNLOAD_FOLDER, latestFolder);
         File[] files = folder.listFiles();
         String largestFile = null;
@@ -113,7 +122,7 @@ public class GutenbergCrawler {
                     String filename = file.getName();
                     if (filename.length() > 2) {
                         try {
-                            // Extract the book ID (everything after the first two digits and before the "." extension)
+                            // Extract the book ID
                             String bookIDStr = filename.substring(2, filename.lastIndexOf('.'));
                             int bookID = Integer.parseInt(bookIDStr);
 
@@ -132,6 +141,7 @@ public class GutenbergCrawler {
 
         return largestFile;
     }
+
 
     // Method to crawl Project Gutenberg and download a number of books
     public void crawlBooks(int numBooks) {

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Crawler main class and dockerfile creation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crawler/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crawler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +37,10 @@
     &quot;accountId&quot;: &quot;fe1a2860-e1e7-4498-9bc9-1f05a814c859&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -52,6 +57,7 @@
   "keyToString": {
     "Application.GutenbergCrawler.executor": "Run",
     "Application.Main.executor": "Run",
+    "Maven.SearchEngine [clean,package].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -62,10 +68,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "settings.editor.selected.configurable": "Docker",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="es.ulpgc.Main" />
@@ -107,11 +118,26 @@
       <workItem from="1731170848406" duration="95000" />
       <workItem from="1731625764658" duration="993000" />
       <workItem from="1731626967973" duration="248000" />
-      <workItem from="1731672206306" duration="1435000" />
+      <workItem from="1731672206306" duration="1782000" />
+      <workItem from="1731710122592" duration="254000" />
+      <workItem from="1731710473250" duration="3186000" />
     </task>
+    <task id="LOCAL-00001" summary="Crawler main class and dockerfile creation">
+      <option name="closed" value="true" />
+      <created>1731673789953</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731673789953</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Crawler main class and dockerfile creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crawler main class and dockerfile creation" />
   </component>
 </project>

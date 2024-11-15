@@ -1,5 +1,5 @@
 # Use a base image with OpenJDK 19
-FROM openjdk:19.0.1-jdk-slim
+FROM openjdk:19-ea-19-jdk-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -8,10 +8,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y maven
 
 # Copy the project files into the container
-COPY . /app
-
-# Build the project using Maven
-RUN mvn clean package
+COPY target/crawler-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
 
 # Specify the entry point for the application
-CMD ["java", "-cp", "target/classes", "Crawler.Main"]
+CMD ["java", "-jar", "app.jar"]
