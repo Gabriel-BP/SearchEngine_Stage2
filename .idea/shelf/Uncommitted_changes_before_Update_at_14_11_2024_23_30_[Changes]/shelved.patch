@@ -1,0 +1,54 @@
+Index: Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.ulpgc;\r\n\r\nimport org.jsoup.Jsoup;\r\n\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.nio.file.*;\r\nimport java.time.LocalDate;\r\nimport java.time.format.DateTimeFormatter;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class GutenbergCrawler {\r\n\r\n    private static final String BASE_URL = \"https://www.gutenberg.org/\";\r\n    private static final String DOWNLOAD_FOLDER = \"datalake\";\r\n    private static final String date = getDate();\r\n    private static final String webID = \"01\";\r\n\r\n\r\n\r\n    public static String getDate() {\r\n        LocalDate hoy = LocalDate.now();\r\n        DateTimeFormatter format = DateTimeFormatter.ofPattern(\"ddMMyyyy\");\r\n        return hoy.format(format);\r\n    }\r\n    // Create download folder if it doesn't exist\r\n    static {\r\n        try {\r\n            Files.createDirectories(Paths.get(DOWNLOAD_FOLDER+\"/\"+date));\r\n        } catch (IOException e) {\r\n            System.err.println(\"Could not create Datalake folder: \" + e.getMessage());\r\n        }\r\n    }\r\n\r\n    // Method to download a book from Project Gutenberg\r\n    public void downloadBook(String bookId) {\r\n        String[] formats = {\"txt\", \"html\", \"epub\", \"mobi\"};\r\n        for (String format : formats) {\r\n            String url = BASE_URL + \"cache/epub/\" + bookId + \"/pg\" + bookId + \".\" + format;\r\n            String newID = webID + bookId;\r\n            String filename = DOWNLOAD_FOLDER + \"/\" + date + \"/\" + newID + \".\" + format;\r\n            try {\r\n                InputStream in = Jsoup.connect(url).ignoreContentType(true).execute().bodyStream();\r\n                Files.copy(in, Paths.get(filename), StandardCopyOption.REPLACE_EXISTING);\r\n                System.out.println(\"Downloaded \" + filename);\r\n                return;\r\n            } catch (IOException e) {\r\n                System.err.println(\"Could not download \" + url + \": \" + e.getMessage());\r\n                e.printStackTrace();\r\n            }\r\n\r\n        }\r\n        System.out.println(\"Book \" + bookId + \" is not available in any of the supported formats.\");\r\n    }\r\n\r\n    // Method to get the list of folders in the download path\r\n    public static List<String> getFoldersInPath() {\r\n        List<String> folders = new ArrayList<>();\r\n        File folder = new File(DOWNLOAD_FOLDER);\r\n\r\n        if (folder.exists() && folder.isDirectory()) {\r\n            File[] files = folder.listFiles();\r\n            if (files != null) {\r\n                for (File file : files) {\r\n                    if (file.isDirectory()) {\r\n                        folders.add(file.getName());\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n        return folders;\r\n    }\r\n\r\n    // Method to get the latest non-empty folder in the download path\r\n    public static String getLatestNonEmptyFolder() {\r\n        List<String> folders = getFoldersInPath();\r\n        String latestFolder = null;\r\n        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"ddMMyyyy\");\r\n\r\n        for (String folderName : folders) {\r\n            try {\r\n                LocalDate folderDate = LocalDate.parse(folderName, formatter);\r\n\r\n                // Check if the folder is non-empty\r\n                File folder = new File(DOWNLOAD_FOLDER, folderName);\r\n                if (folder.listFiles().length > 0) {\r\n                    // Update latestFolder if it's the first valid folder or a later date\r\n                    if (latestFolder == null || folderDate.isAfter(LocalDate.parse(latestFolder, formatter))) {\r\n                        latestFolder = folderName;\r\n                    }\r\n                }\r\n            } catch (Exception e) {\r\n                System.out.println(\"Skipping invalid folder format: \" + folderName);\r\n            }\r\n        }\r\n\r\n        return latestFolder;\r\n    }\r\n\r\n    // Method to get the file with the biggest ID in the latest non-empty folder\r\n    public static String getFileWithLargestBookID(String latestFolder) {\r\n        File folder = new File(DOWNLOAD_FOLDER, latestFolder);\r\n        File[] files = folder.listFiles();\r\n        String largestFile = null;\r\n        int largestBookID = -1;\r\n\r\n        if (files != null) {\r\n            for (File file : files) {\r\n                if (file.isFile()) {\r\n                    String filename = file.getName();\r\n                    if (filename.length() > 2) {\r\n                        try {\r\n                            // Extract the book ID (everything after the first two digits and before the \".\" extension)\r\n                            String bookIDStr = filename.substring(2, filename.lastIndexOf('.'));\r\n                            int bookID = Integer.parseInt(bookIDStr);\r\n\r\n                            // Find the file with the largest book ID\r\n                            if (bookID > largestBookID) {\r\n                                largestBookID = bookID;\r\n                                largestFile = filename;\r\n                            }\r\n                        } catch (NumberFormatException e) {\r\n                            System.out.println(\"Skipping invalid file format: \" + filename);\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n        return largestFile;\r\n    }\r\n\r\n    // Method to crawl Project Gutenberg and download a number of books\r\n    public void crawlBooks(int numBooks) {\r\n        String latestID = getFileWithLargestBookID(getLatestNonEmptyFolder());\r\n        int ID = Integer.parseInt(latestID.substring(2, latestID.lastIndexOf('.')));\r\n        int startIndex = ID + 1;\r\n        int endIndex = startIndex + numBooks;\r\n        for (int i = startIndex; i < endIndex; i++) {\r\n            downloadBook(String.valueOf(i));\r\n        }\r\n    }\r\n    public static void main(String[] args) {\r\n        GutenbergCrawler crawler = new GutenbergCrawler();\r\n        // print all folders in the path\r\n        List<String> folders = getFoldersInPath();\r\n        folders.forEach(System.out::println);\r\n        // print the earliest non-empty folder\r\n        String earliestFolder = getLatestNonEmptyFolder();\r\n        System.out.println(\"Earliest non-empty folder: \" + earliestFolder);\r\n        // print the file with the largest book ID in the earliest non-empty folder\r\n        String largestFile = getFileWithLargestBookID(earliestFolder);\r\n        System.out.println(\"File with largest book ID: \" + largestFile);\r\n        // download a number of books\r\n        crawler.crawlBooks(100);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java b/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java
+--- a/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java	(revision d8c31463962968878cc40d6ddd19a9d701684755)
++++ b/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java	(date 1731024897492)
+@@ -155,6 +155,6 @@
+         String largestFile = getFileWithLargestBookID(earliestFolder);
+         System.out.println("File with largest book ID: " + largestFile);
+         // download a number of books
+-        crawler.crawlBooks(100);
++        crawler.crawlBooks(15);
+     }
+ }
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision d8c31463962968878cc40d6ddd19a9d701684755)
++++ /dev/null	(revision d8c31463962968878cc40d6ddd19a9d701684755)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_19\" default=\"true\" project-jdk-name=\"openjdk-19\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision d8c31463962968878cc40d6ddd19a9d701684755)
++++ b/.idea/misc.xml	(date 1731024684474)
+@@ -8,7 +8,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file

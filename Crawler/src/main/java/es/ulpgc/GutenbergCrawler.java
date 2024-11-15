@@ -143,18 +143,5 @@ public class GutenbergCrawler {
             downloadBook(String.valueOf(i));
         }
     }
-    public static void main(String[] args) {
-        GutenbergCrawler crawler = new GutenbergCrawler();
-        // print all folders in the path
-        List<String> folders = getFoldersInPath();
-        folders.forEach(System.out::println);
-        // print the earliest non-empty folder
-        String earliestFolder = getLatestNonEmptyFolder();
-        System.out.println("Earliest non-empty folder: " + earliestFolder);
-        // print the file with the largest book ID in the earliest non-empty folder
-        String largestFile = getFileWithLargestBookID(earliestFolder);
-        System.out.println("File with largest book ID: " + largestFile);
-        // download a number of books
-        crawler.crawlBooks(100);
-    }
+
 }
