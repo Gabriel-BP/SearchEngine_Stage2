@@ -1,7 +1,5 @@
 package es.ulpgc.Cleaner;
 
-import es.ulpgc.FileManager;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

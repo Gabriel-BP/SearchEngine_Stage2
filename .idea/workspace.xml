@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Correcting of Cleaner and Indexer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Indexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Indexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LastProcessed.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index_content.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index_metadata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Indexer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
