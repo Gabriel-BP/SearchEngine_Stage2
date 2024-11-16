@@ -1,102 +1,157 @@
 package es.ulpgc;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class GutenbergCrawler {
 
-    private static final String BASE_URL = "https://www.gutenberg.org";
-    private static final String BOOKS_URL = BASE_URL + "/browse/scores/top";
-    private static final String DOWNLOAD_FOLDER = "gutenberg_books";
+    private static final String BASE_URL = "https://www.gutenberg.org/";
+    private static final String DOWNLOAD_FOLDER = "datalake";
+    private static final String date = getDate();
+    private static final String webID = "01";
 
+
+
+    public static String getDate() {
+        LocalDate hoy = LocalDate.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("ddMMyyyy");
+        return hoy.format(format);
+    }
     // Create download folder if it doesn't exist
     static {
         try {
-            Files.createDirectories(Paths.get(DOWNLOAD_FOLDER));
+            Files.createDirectories(Paths.get(DOWNLOAD_FOLDER+"/"+date));
         } catch (IOException e) {
-            System.err.println("Could not create download folder: " + e.getMessage());
+            System.err.println("Could not create Datalake folder: " + e.getMessage());
         }
     }
 
-    // Method to fetch book links
-    public List<String> getBookLinks() {
-        List<String> bookLinks = new ArrayList<>();
-        try {
-            Document doc = Jsoup.connect(BOOKS_URL).header("Accept-Encoding", "identity").get();
-            Elements links = doc.select("a[href]");
-            for (Element link : links) {
-                String href = link.attr("href");
-                if (href.startsWith("/ebooks/")) {
-                    bookLinks.add(BASE_URL + href);
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error fetching book links: " + e.getMessage());
-        }
-        return bookLinks;
-    }
-
-
-    // Method to download a book by ID
+    // Method to download a book from Project Gutenberg
     public void downloadBook(String bookId) {
         String[] formats = {"txt", "html", "epub", "mobi"};
         for (String format : formats) {
-            String url = String.format("https://gutenberg.org/cache/epub/%s/pg%s.%s", bookId, bookId, format);
-            Path filePath = Paths.get(DOWNLOAD_FOLDER, bookId + "." + format);
-
-            // Check if the book is already downloaded
-            if (Files.exists(filePath)) {
-                System.out.println(bookId + "." + format + " already downloaded, skipping.");
+            String url = BASE_URL + "cache/epub/" + bookId + "/pg" + bookId + "." + format;
+            String newID = webID + bookId;
+            String filename = DOWNLOAD_FOLDER + "/" + date + "/" + newID + "." + format;
+            try {
+                InputStream in = Jsoup.connect(url).ignoreContentType(true).execute().bodyStream();
+                Files.copy(in, Paths.get(filename), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Downloaded " + filename);
                 return;
+            } catch (IOException e) {
+                System.err.println("Could not download " + url + ": " + e.getMessage());
+                e.printStackTrace();
             }
 
-            System.out.println("Attempting to download book " + bookId + " from " + url);
-            try (InputStream in = Jsoup.connect(url).ignoreContentType(true).execute().bodyStream()) {
-                Files.copy(in, filePath, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Downloaded book " + bookId + " in " + format + " format.");
-                return;  // Exit once a format is downloaded
-            } catch (IOException e) {
-                System.err.println("Error downloading from " + url + ": " + e.getMessage());
-            }
         }
         System.out.println("Book " + bookId + " is not available in any of the supported formats.");
     }
 
-    // Method to crawl through and download a specified number of books
-    public void crawlBooks(int numBooks) {
-        List<String> bookLinks = getBookLinks();
-        if (bookLinks.isEmpty()) {
-            System.out.println("No book links found. Exiting crawler.");
-            return;
-        }
+    // Method to get the list of folders in the download path
+    public static List<String> getFoldersInPath() {
+        List<String> folders = new ArrayList<>();
+        File folder = new File(DOWNLOAD_FOLDER);
 
-        List<String> bookIds = new ArrayList<>();
-        for (String link : bookLinks) {
-            bookIds.add(link.substring(link.lastIndexOf('/') + 1));
-        }
-
-        for (int i = 0; i < Math.min(numBooks, bookIds.size()); i++) {
-            downloadBook(bookIds.get(i));
-            try {
-                TimeUnit.SECONDS.sleep(1);  // Pause between downloads
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                System.err.println("Crawl interrupted: " + e.getMessage());
+        if (folder.exists() && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        folders.add(file.getName());
+                    }
+                }
             }
         }
+
+        return folders;
     }
 
-    public static void main(String[] args) {
-        GutenbergCrawler crawler = new GutenbergCrawler();
-        crawler.crawlBooks(10);  // Example: download 5 books
+    // Method to get the latest non-empty folder in the download path
+    public static String getLatestNonEmptyFolder() {
+        List<String> folders = getFoldersInPath();
+        String latestFolder = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+
+        for (String folderName : folders) {
+            try {
+                LocalDate folderDate = LocalDate.parse(folderName, formatter);
+
+                // Check if the folder is non-empty
+                File folder = new File(DOWNLOAD_FOLDER, folderName);
+                if (folder.listFiles() != null && folder.listFiles().length > 0) {
+                    // Update latestFolder if it's the first valid folder or a later date
+                    if (latestFolder == null || folderDate.isAfter(LocalDate.parse(latestFolder, formatter))) {
+                        latestFolder = folderName;
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Skipping invalid folder format: " + folderName);
+            }
+        }
+
+        if (latestFolder == null) {
+            System.out.println("No non-empty folders found.");
+        }
+
+        return latestFolder;
     }
+
+
+    public static String getFileWithLargestBookID(String latestFolder) {
+        if (latestFolder == null) {
+            System.err.println("No non-empty folder available.");
+            return "010.txt";
+        }
+
+        File folder = new File(DOWNLOAD_FOLDER, latestFolder);
+        File[] files = folder.listFiles();
+        String largestFile = null;
+        int largestBookID = -1;
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    String filename = file.getName();
+                    if (filename.length() > 2) {
+                        try {
+                            // Extract the book ID
+                            String bookIDStr = filename.substring(2, filename.lastIndexOf('.'));
+                            int bookID = Integer.parseInt(bookIDStr);
+
+                            // Find the file with the largest book ID
+                            if (bookID > largestBookID) {
+                                largestBookID = bookID;
+                                largestFile = filename;
+                            }
+                        } catch (NumberFormatException e) {
+                            System.out.println("Skipping invalid file format: " + filename);
+                        }
+                    }
+                }
+            }
+        }
+
+        return largestFile;
+    }
+
+
+    // Method to crawl Project Gutenberg and download a number of books
+    public void crawlBooks(int numBooks) {
+        String latestID = getFileWithLargestBookID(getLatestNonEmptyFolder());
+        int ID = Integer.parseInt(latestID.substring(2, latestID.lastIndexOf('.')));
+        int startIndex = ID + 1;
+        int endIndex = startIndex + numBooks;
+        for (int i = startIndex; i < endIndex; i++) {
+            downloadBook(String.valueOf(i));
+        }
+    }
+
 }
