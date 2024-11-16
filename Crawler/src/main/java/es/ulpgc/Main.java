@@ -8,7 +8,7 @@ public class Main {
         GutenbergCrawler crawler = new GutenbergCrawler();
 
         System.out.println("Starting crawling process...");
-        crawler.crawlBooks(100);
+        crawler.crawlBooks(10);
         System.out.println("Crawling completed.");
     }
 }

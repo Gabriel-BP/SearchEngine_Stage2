@@ -5,126 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Code Cleaning">
-      <change afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Cleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/MetadataExtractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/StopwordsLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/TextCleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/BookIndexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/CSVWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/HashMapIndexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Indexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Trie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01497.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01498.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01499.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01500.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01501.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01502.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01503.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01504.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01505.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01506.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01507.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01508.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01509.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01510.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01511.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01512.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01513.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01514.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01515.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01516.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01517.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01518.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01519.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01520.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01521.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01522.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01523.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01524.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01525.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01526.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01527.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01528.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01529.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01530.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01531.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01532.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01533.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01534.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01535.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01536.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01537.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01538.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01539.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01540.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01541.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01542.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01543.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01544.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01545.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01546.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01547.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01548.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01549.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01550.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01551.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01552.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01553.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01554.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01555.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01556.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01557.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01558.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01559.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01560.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01561.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01562.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01563.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01564.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01565.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01566.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01567.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01568.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01569.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01570.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01571.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01572.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01573.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01574.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01575.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01576.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01577.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01578.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01579.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01580.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01581.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01582.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01583.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01584.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01585.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01586.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01587.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01588.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01589.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01590.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01591.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01592.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01593.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01594.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01595.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01596.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueryEngine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Cleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Cleaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/CSVWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/CSVWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index_content.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index_metadata.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,35 +58,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.GUI.executor": "Run",
-    "Application.GutenbergCrawler.executor": "Run",
-    "Application.Indexer.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.es.ulpgc.Cleaner.Main.executor": "Run",
-    "Application.es.ulpgc.Indexer.Main.executor": "Run",
-    "Maven.SearchEngine [clean,package].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.GUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GutenbergCrawler.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Indexer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.es.ulpgc.Cleaner.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.es.ulpgc.Indexer.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SearchEngine [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.es.ulpgc.Indexer.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="es.ulpgc.Main" />
       <module name="crawler" />
@@ -211,9 +100,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="es.ulpgc.Cleaner.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="es.ulpgc.Cleaner.Main" />
+      <module name="indexer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="es.ulpgc.Cleaner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="es.ulpgc.Indexer.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="es.ulpgc.Indexer.Main" />
+      <module name="indexer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="es.ulpgc.Indexer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.es.ulpgc.Indexer.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.es.ulpgc.Cleaner.Main" />
       </list>
     </recent_temporary>
   </component>
