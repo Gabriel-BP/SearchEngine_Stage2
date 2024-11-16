@@ -12,7 +12,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>es.ulpgc.Main</mainClass>
+                            <mainClass>es.ulpgc.Controller</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

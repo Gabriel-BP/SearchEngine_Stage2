@@ -1,5 +1,6 @@
 package es.ulpgc;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -133,7 +134,7 @@ public class Indexer {
 
     public static void main(String[] args) {
         try {
-            List<Cleaner.Book> books = Cleaner.processAllBooks("datalake/" + GutenbergCrawler.getDate());
+            List<Cleaner.Book> books = Cleaner.processAllBooks("datalake/" + FileManager.getDate());
             Indexer indexer = new Indexer();
             indexer.indexBooks(books);
         } catch (IOException e) {

@@ -121,7 +121,7 @@ public class Cleaner {
 
     public static void main(String[] args) throws IOException {
         // Example: Process all books from a folder and print out clean text of each book
-        List<Book> books = processAllBooks("datalake/" + GutenbergCrawler.getDate());
+        List<Book> books = processAllBooks("datalake/" + FileManager.getDate());
 
     }
 }
