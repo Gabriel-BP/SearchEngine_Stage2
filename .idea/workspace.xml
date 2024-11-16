@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Code Cleaning">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Correcting of Cleaner and Indexer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Cleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Cleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/CSVWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/CSVWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Indexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Indexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LastProcessed.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index_content.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index_metadata.csv" beforeDir="false" />
     </list>
@@ -158,6 +156,7 @@
       <workItem from="1731672206306" duration="1782000" />
       <workItem from="1731710122592" duration="254000" />
       <workItem from="1731710473250" duration="3186000" />
+      <workItem from="1731789431595" duration="2226000" />
     </task>
     <task id="LOCAL-00001" summary="Crawler main class and dockerfile creation">
       <option name="closed" value="true" />
@@ -191,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731770920939</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Correcting of Cleaner and Indexer">
+      <option name="closed" value="true" />
+      <created>1731787298925</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731787298925</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +209,7 @@
     <MESSAGE value="QueryEngine" />
     <MESSAGE value="Query Engine Development" />
     <MESSAGE value="Code Cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code Cleaning" />
+    <MESSAGE value="Correcting of Cleaner and Indexer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcting of Cleaner and Indexer" />
   </component>
 </project>
