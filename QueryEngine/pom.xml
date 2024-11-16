@@ -13,6 +13,14 @@
                     <target>18</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version> <!-- Puedes usar una versión más reciente si está disponible -->
+                <configuration>
+                    <mainClass>es.ulpgc.GUI</mainClass> <!-- Ajusta según tu paquete y clase principal -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <parent>
@@ -28,6 +36,20 @@
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <!-- Dependencia principal de JavaFX -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>20</version> <!-- Cambia la versión si es necesario -->
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>20</version> <!-- Cambia la versión si es necesario -->
+        </dependency>
+    </dependencies>
 
 
 </project>
