@@ -12,8 +12,8 @@ public class Main {
         InvertedIndex invertedIndex = new InvertedIndex();
         invertedIndex.loadIndex("index_content.csv");
 
-        System.out.println("Welcome to the Query Engine!");
-        System.out.println("Please, write down your query:");
+        System.out.println("Welcome to the Search Engine!");
+        System.out.println("Please, write your query:");
 
         String userInput = scanner.nextLine();
         Query query = new Query(userInput);
@@ -23,23 +23,33 @@ public class Main {
 
         Set<String> finalResults = new HashSet<>();
         boolean firstToken = true;
+        boolean foundAny = false;
+
         for (String token : tokens) {
             Set<String> results = invertedIndex.search(token);
-            if (firstToken) {
-                finalResults.addAll(results);
-                firstToken = false;
+            if (!results.isEmpty()) {
+                foundAny = true;
+                System.out.println("Results found for --> " + token);
+                for (String ebookNumber : results) {
+                    System.out.println("EbookNumber: " + ebookNumber);
+                }
+                if (firstToken) {
+                    finalResults.addAll(results);
+                    firstToken = false;
+                } else {
+                    finalResults.retainAll(results);
+                }
             } else {
-                finalResults.retainAll(results); // Intersección de resultados
+                System.out.println("No results found for --> " + token);
             }
         }
-
-        if (finalResults.isEmpty()) {
-            System.out.println("No results found for the query.");
-        } else {
-            System.out.println("Documentos encontrados:");
+        if (foundAny && !finalResults.isEmpty()) {
+            System.out.println("\nMatching documents for all terms:");
             for (String ebookNumber : finalResults) {
                 System.out.println("EbookNumber: " + ebookNumber);
             }
+        } else if (!foundAny) {
+            System.out.println("No results were found for your query.");
         }
 
         scanner.close();
