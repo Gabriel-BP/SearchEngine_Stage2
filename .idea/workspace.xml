@@ -5,126 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Code Cleaning">
-      <change afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Cleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/MetadataExtractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/StopwordsLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner/TextCleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/BookIndexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/CSVWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/HashMapIndexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Indexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer/Trie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01497.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01498.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01499.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01500.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01501.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01502.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01503.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01504.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01505.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01506.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01507.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01508.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01509.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01510.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01511.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01512.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01513.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01514.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01515.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01516.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01517.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01518.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01519.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01520.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01521.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01522.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01523.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01524.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01525.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01526.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01527.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01528.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01529.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01530.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01531.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01532.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01533.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01534.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01535.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01536.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01537.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01538.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01539.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01540.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01541.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01542.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01543.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01544.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01545.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01546.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01547.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01548.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01549.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01550.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01551.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01552.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01553.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01554.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01555.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01556.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01557.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01558.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01559.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01560.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01561.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01562.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01563.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01564.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01565.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01566.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01567.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01568.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01569.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01570.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01571.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01572.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01573.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01574.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01575.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01576.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01577.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01578.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01579.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01580.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01581.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01582.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01583.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01584.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01585.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01586.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01587.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01588.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01589.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01590.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01591.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01592.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01593.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01594.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01595.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/datalake/16112024/01596.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/src/main/java/es/ulpgc/GutenbergCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Cleaner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Indexer/src/main/java/es/ulpgc/Indexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueryEngine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731770920939</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Code Cleaning">
+      <option name="closed" value="true" />
+      <created>1731780636306</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731780636306</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
