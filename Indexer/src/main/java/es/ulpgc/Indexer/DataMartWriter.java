@@ -67,12 +67,17 @@ public class DataMartWriter {
                 } else {
                     // Word is new, create the file
                     try (FileWriter writer = new FileWriter(wordFile)) {
-                        writer.write("{\"word\": \"" + word + "\", \"references\": " + ebookNumbers + "}");
+                        writer.write("{\"word\": \"" + word + "\", \"references\": [");
+                        writer.write(ebookNumbers.stream()
+                                .map(ref -> "\"" + ref + "\"") // Enclose each reference in quotes
+                                .collect(Collectors.joining(",")));
+                        writer.write("]}");
                     }
                 }
             }
         }
     }
+
 
 
     /**

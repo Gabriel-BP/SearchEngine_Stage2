@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 
@@ -11,6 +13,11 @@ public class SearchEngineGUI extends JFrame {
     private JComboBox<String> dataSourceSelector;
     private JButton loadButton;
     private JTextField queryField;
+    private JTextField titleFilterField;
+    private JTextField authorFilterField;
+    private JTextField dateFilterField;
+    private JTextField languageFilterField;
+    private JTextField creditsFilterField;
     private JButton searchButton;
     private JTextArea resultsArea;
     private InvertedIndex invertedIndex;
@@ -22,14 +29,14 @@ public class SearchEngineGUI extends JFrame {
             e.printStackTrace();
         }
         setTitle("Search Engine");
-        setSize(600, 400);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new FlowLayout());
 
-        JLabel dataSourceLabel = new JLabel("1. Choose your data sources:");
+        JLabel dataSourceLabel = new JLabel("1. Choose your data source:");
         dataSourceSelector = new JComboBox<>(new String[]{"CSV", "Datamart"});
         loadButton = new JButton("Load");
 
@@ -41,16 +48,40 @@ public class SearchEngineGUI extends JFrame {
         centerPanel.setLayout(new BorderLayout());
 
         JPanel queryPanel = new JPanel();
-        queryPanel.setLayout(new FlowLayout());
+        queryPanel.setLayout(new GridLayout(6, 2, 5, 5)); // Grid layout for fields and filters
 
-        JLabel queryLabel = new JLabel("2. Write down your query:");
+        JLabel queryLabel = new JLabel("Query:");
         queryField = new JTextField(30);
-        searchButton = new JButton("Search");
+
+        JLabel titleFilterLabel = new JLabel("Filter by Title:");
+        titleFilterField = new JTextField(30);
+
+        JLabel authorFilterLabel = new JLabel("Filter by Author:");
+        authorFilterField = new JTextField(30);
+
+        JLabel dateFilterLabel = new JLabel("Filter by Date:");
+        dateFilterField = new JTextField(30);
+
+        JLabel languageFilterLabel = new JLabel("Filter by Language:");
+        languageFilterField = new JTextField(30);
+
+        JLabel creditsFilterLabel = new JLabel("Filter by Credits:");
+        creditsFilterField = new JTextField(30);
 
         queryPanel.add(queryLabel);
         queryPanel.add(queryField);
-        queryPanel.add(searchButton);
+        queryPanel.add(titleFilterLabel);
+        queryPanel.add(titleFilterField);
+        queryPanel.add(authorFilterLabel);
+        queryPanel.add(authorFilterField);
+        queryPanel.add(dateFilterLabel);
+        queryPanel.add(dateFilterField);
+        queryPanel.add(languageFilterLabel);
+        queryPanel.add(languageFilterField);
+        queryPanel.add(creditsFilterLabel);
+        queryPanel.add(creditsFilterField);
 
+        searchButton = new JButton("Search");
         resultsArea = new JTextArea();
         resultsArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(resultsArea);
@@ -58,16 +89,17 @@ public class SearchEngineGUI extends JFrame {
         centerPanel.add(queryPanel, BorderLayout.NORTH);
         centerPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // Agregar paneles a la ventana principal
+        // Add panels to the main frame
         add(topPanel, BorderLayout.NORTH);
         add(centerPanel, BorderLayout.CENTER);
+        add(searchButton, BorderLayout.SOUTH);
 
-        // Configurar eventos
+        // Configure events
         configureEvents();
     }
 
     private void configureEvents() {
-        // Evento para cargar la fuente de datos
+        // Event for loading the data source
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,14 +107,16 @@ public class SearchEngineGUI extends JFrame {
                 try {
                     if (selectedSource.equals("CSV")) {
                         String filePath = "index_content.csv";
-                        DataSource dataSource = new CSVDataSource(filePath);
+                        String metadataPath = "index_metadata.csv";
+                        DataSource dataSource = new CSVDataSource(filePath, metadataPath);
                         invertedIndex = new InvertedIndex(dataSource);
                         JOptionPane.showMessageDialog(SearchEngineGUI.this, "Data loaded from the CSV.");
                     } else if (selectedSource.equals("Datamart")) {
                         String datamartPath = "datamart_content";
-                        DataSource dataSource = new DatamartDataSource(datamartPath);
+                        String metadataPath = "datamart_metadata";
+                        DataSource dataSource = new DatamartDataSource(datamartPath, metadataPath);
                         invertedIndex = new InvertedIndex(dataSource);
-                        JOptionPane.showMessageDialog(SearchEngineGUI.this, "Data loaded from thee Datamart.");
+                        JOptionPane.showMessageDialog(SearchEngineGUI.this, "Data loaded from the Datamart.");
                     }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(SearchEngineGUI.this, "Error loading the data source: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -90,7 +124,7 @@ public class SearchEngineGUI extends JFrame {
             }
         });
 
-        // Evento para realizar la búsqueda
+        // Event for performing the search
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,6 +143,7 @@ public class SearchEngineGUI extends JFrame {
                 Set<String> finalResults = null;
 
                 try {
+                    // Tokenize and search for each term in the query
                     for (String token : tokenizer.tokenize(new Query(query))) {
                         Set<String> results = invertedIndex.search(token);
                         if (finalResults == null) {
@@ -118,6 +153,30 @@ public class SearchEngineGUI extends JFrame {
                         }
                     }
 
+                    // Create a map of filters
+                    Map<String, String> filters = new HashMap<>();
+                    if (!titleFilterField.getText().trim().isEmpty()) {
+                        filters.put("Title", titleFilterField.getText().trim().toLowerCase());
+                    }
+                    if (!authorFilterField.getText().trim().isEmpty()) {
+                        filters.put("Author", authorFilterField.getText().trim().toLowerCase());
+                    }
+                    if (!dateFilterField.getText().trim().isEmpty()) {
+                        filters.put("Date", dateFilterField.getText().trim().toLowerCase());
+                    }
+                    if (!languageFilterField.getText().trim().isEmpty()) {
+                        filters.put("Language", languageFilterField.getText().trim().toLowerCase());
+                    }
+                    if (!creditsFilterField.getText().trim().isEmpty()) {
+                        filters.put("Credits", creditsFilterField.getText().trim().toLowerCase());
+                    }
+
+                    // Apply filters if any
+                    if (!filters.isEmpty() && finalResults != null) {
+                        finalResults = invertedIndex.filterByMultipleMetadata(finalResults, filters);
+                    }
+
+                    // Display results
                     if (finalResults != null && !finalResults.isEmpty()) {
                         resultsArea.setText("Indexes found for the query \"" + query + "\":\n");
                         for (String result : finalResults) {
