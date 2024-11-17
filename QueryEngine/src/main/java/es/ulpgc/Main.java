@@ -9,8 +9,27 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        InvertedIndex invertedIndex = new InvertedIndex();
-        invertedIndex.loadIndex("index_content.csv");
+        System.out.println("Seleccione la fuente de datos:");
+        System.out.println("1. CSV");
+        System.out.println("2. Datamart");
+        System.out.print("Enter your choice (1 or 2): ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        DataSource dataSource;
+        if (choice == 1) {
+            String filePath = "index_content.csv";
+            dataSource = new CSVDataSource(filePath);
+        } else if (choice == 2) {
+            String datamartPath = "datamart_content";
+            System.out.println("Loading data from the datamart...");
+            dataSource = new DatamartDataSource(datamartPath);
+        } else {
+            System.out.println("Invalid choice. Please restart the program and enter 1 or 2.");
+            return;
+        }
+
+        InvertedIndex invertedIndex = new InvertedIndex(dataSource);
 
         System.out.println("Welcome to the Query Engine!");
         System.out.println("Please, write down your query:");
@@ -37,21 +56,12 @@ public class Main {
                     finalResults.addAll(results);
                     firstToken = false;
                 } else {
-                    finalResults.retainAll(results); // Intersección de resultados
+                    finalResults.retainAll(results);
                 }
             } else {
                 System.out.println("No results were found for the term: " + token);
             }
         }
-
-//        if (foundAny && !finalResults.isEmpty()) {
-//            System.out.println("\nMatching documents for all terms:");
-//            for (String ebookNumber : finalResults) {
-//                System.out.println("EbookNumber: " + ebookNumber);
-//            }
-//        } else if (!foundAny) {
-//            System.out.println("No results were found for your query.");
-//        }
 
         scanner.close();
     }

@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Code Cleaning">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_2024_15_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_2024_15_41__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QueryEngine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/InvertedIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/InvertedIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -59,6 +65,7 @@
     "Application.es.ulpgc.Cleaner.Main.executor": "Run",
     "Application.es.ulpgc.Indexer.Main.executor": "Run",
     "Maven.SearchEngine [clean,package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -101,8 +108,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-19.0.2-corretto-19.0.2-f644763e9732-1e16d6ec" />
       </set>
     </attachedChunks>
   </component>
@@ -122,6 +129,7 @@
       <workItem from="1731672206306" duration="1782000" />
       <workItem from="1731710122592" duration="254000" />
       <workItem from="1731710473250" duration="3186000" />
+      <workItem from="1731847625221" duration="3679000" />
     </task>
     <task id="LOCAL-00001" summary="Crawler main class and dockerfile creation">
       <option name="closed" value="true" />
@@ -163,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731780636306</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Code Cleaning">
+      <option name="closed" value="true" />
+      <created>1731847545078</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731847545078</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
