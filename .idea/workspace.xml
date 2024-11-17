@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Query Engine with datamart">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueryEngine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="GUI implementation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +122,7 @@
       <workItem from="1731672206306" duration="1782000" />
       <workItem from="1731710122592" duration="254000" />
       <workItem from="1731710473250" duration="3186000" />
-      <workItem from="1731847625221" duration="4623000" />
+      <workItem from="1731847625221" duration="4908000" />
     </task>
     <task id="LOCAL-00001" summary="Crawler main class and dockerfile creation">
       <option name="closed" value="true" />
@@ -184,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731854126957</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="GUI implementation">
+      <option name="closed" value="true" />
+      <created>1731855210842</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731855210842</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +200,7 @@
     <MESSAGE value="Query Engine Development" />
     <MESSAGE value="Code Cleaning" />
     <MESSAGE value="Query Engine with datamart" />
-    <option name="LAST_COMMIT_MESSAGE" value="Query Engine with datamart" />
+    <MESSAGE value="GUI implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI implementation" />
   </component>
 </project>
