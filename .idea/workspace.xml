@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Code Cleaning">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_2024_15_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_2024_15_41__Changes_.xml" afterDir="false" />
+    <list default="true" id="36c2aeab-06ee-459d-adf9-f3e577fa803d" name="Changes" comment="Query Engine with datamart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QueryEngine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/InvertedIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/InvertedIndex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/QueryEngine/src/main/java/es/ulpgc/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +126,7 @@
       <workItem from="1731672206306" duration="1782000" />
       <workItem from="1731710122592" duration="254000" />
       <workItem from="1731710473250" duration="3186000" />
-      <workItem from="1731847625221" duration="3679000" />
+      <workItem from="1731847625221" duration="4623000" />
     </task>
     <task id="LOCAL-00001" summary="Crawler main class and dockerfile creation">
       <option name="closed" value="true" />
@@ -179,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731847545078</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Query Engine with datamart">
+      <option name="closed" value="true" />
+      <created>1731854126957</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731854126957</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +195,7 @@
     <MESSAGE value="QueryEngine" />
     <MESSAGE value="Query Engine Development" />
     <MESSAGE value="Code Cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code Cleaning" />
+    <MESSAGE value="Query Engine with datamart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Query Engine with datamart" />
   </component>
 </project>
