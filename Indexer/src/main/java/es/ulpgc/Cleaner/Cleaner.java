@@ -41,7 +41,7 @@ public class Cleaner {
     public List<Book> processAllBooks(String rootPath) throws IOException {
         File rootFolder = new File(rootPath);
         List<Book> books = new ArrayList<>();
-        LastProcessedTracker tracker = new LastProcessedTracker("LastProcessed.txt");
+        LastProcessedTracker tracker = new LastProcessedTracker("/app/shared/LastProcessed.txt");
         String lastProcessedBaseName = tracker.getLastProcessed();
 
         boolean startProcessing = (lastProcessedBaseName == null); // Start immediately if no file is recorded.

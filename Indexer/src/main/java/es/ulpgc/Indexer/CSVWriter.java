@@ -11,8 +11,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CSVWriter {
-    private static final String INDEX_METADATA_FILE = "index_metadata.csv";
-    private static final String INDEX_CONTENT_FILE = "index_content.csv";
+    private static final String INDEX_METADATA_FILE = "/app/shared/index_metadata.csv";
+    private static final String INDEX_CONTENT_FILE = "/app/shared/index_content.csv";
 
     public void saveMetadataToCSV(Iterable<Book> books) {
         File file = new File(INDEX_METADATA_FILE);

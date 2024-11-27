@@ -8,7 +8,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y maven
 
 # Copy the project files into the container
-COPY target/crawler-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
+COPY target/crawler-1.0-SNAPSHOT.jar app.jar
 
 # Specify the entry point for the application
 CMD ["java", "-jar", "app.jar"]

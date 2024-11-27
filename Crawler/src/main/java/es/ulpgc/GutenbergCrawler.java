@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GutenbergCrawler {
-    private static final String DOWNLOAD_FOLDER = "datalake";
+    private static final String DOWNLOAD_FOLDER = "/app/shared/datalake";
     private static final String webID = "01";
 
     public void crawlBooks(int numBooks) {

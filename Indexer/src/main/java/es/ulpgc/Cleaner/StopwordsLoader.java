@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 public class StopwordsLoader {
-    private static final String STOPWORDS_FILE_PATH = "stopwords-en.txt"; // Ruta al archivo de stopwords
+    private static final String STOPWORDS_FILE_PATH = "/app/shared/stopwords-en.txt"; // Ruta al archivo de stopwords
 
     public static Set<String> loadStopwords() {
         Set<String> stopwords = new HashSet<>();

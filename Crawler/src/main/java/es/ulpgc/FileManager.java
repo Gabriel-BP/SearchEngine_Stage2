@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileManager {
-    private static final String DOWNLOAD_FOLDER = "datalake";
+    private static final String DOWNLOAD_FOLDER = "/app/shared/datalake";
 
     public static String getDate() {
         LocalDate hoy = LocalDate.now();
